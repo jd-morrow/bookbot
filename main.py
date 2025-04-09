@@ -1,3 +1,5 @@
+from stats import get_word_count
+
 def main():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
@@ -6,14 +8,10 @@ def main():
     sorted_chars = sort_letter_count(letter_count)
 
     print(f"In the submitted text at {book_path} there are...")
-    print(f"{word_count} words, and...")
+    print(f"{word_count} words found in the document, and...")
     for char in sorted_chars:
         if char["Character"].isalpha():
             print(f"{char['Count']} instances of the letter {char['Character']}...")
-
-def get_word_count(text):
-    words = text.split()
-    return len(words)
 
 def get_book_text(path):
     with open(path) as f:
